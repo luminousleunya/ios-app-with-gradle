@@ -5,6 +5,7 @@ plugins {
 xcodebuild {
   scheme = 'AppGradle'
   target = 'AppGradle'
+  version = '7.0'
 }
 
 task wrapper( type: Wrapper ) {
