@@ -5,6 +5,16 @@ plugins {
 xcodebuild {
   scheme = 'AppGradle'
   target = 'AppGradle'
+
+  destination {
+    platform = 'iOS Simulator'
+    name = 'iPhone 4s'
+    os='8.*'
+  }
+
+  coverage {
+    outputFormat = 'xml'
+  }
 }
 
 task wrapper( type: Wrapper ) {
