@@ -1,10 +1,26 @@
-plugins {
-  id "org.openbakery.xcode-plugin" version "0.11.4"
+buildscript {
+    repositories {
+        maven {
+            url('http://repository.openbakery.org/')
+        }
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.openbakery:xcode-plugin:0.11.4'
+    }
+
 }
 
+apply plugin: 'org.openbakery.xcode-plugin'
+
 xcodebuild {
+  workspace = 'AppGradle.xcworkspace'
   scheme = 'AppGradle'
   target = 'AppGradle'
+
+  configuration = 'Debug'
+  sdk = 'iphonesimulator'
 
   destination {
     platform = 'iOS Simulator'
