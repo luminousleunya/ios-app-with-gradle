@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven {
             url('http://repository.openbakery.org/')
         }
@@ -7,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.openbakery:xcode-plugin:0.11.4'
+        classpath 'org.openbakery:xcode-plugin:0.11.5-TEST'
     }
 
 }
@@ -15,24 +16,23 @@ buildscript {
 apply plugin: 'org.openbakery.xcode-plugin'
 
 xcodebuild {
-  workspace = 'AppGradle.xcworkspace'
-  scheme = 'AppGradle'
-  target = 'AppGradle'
+    scheme = 'AppGradle'
+    target = 'AppGradle'
 
-  configuration = 'Debug'
-  sdk = 'iphonesimulator'
+    configuration = 'Debug'
+    sdk = 'iphonesimulator'
 
-  destination {
-    platform = 'iOS Simulator'
-    name = 'iPhone 4s'
-    os='8.*'
-  }
+    destination {
+        platform = 'iOS Simulator'
+        name = 'iPhone 5s'
+        os = '8.*'
+    }
 
-  coverage {
-    outputFormat = 'xml'
-  }
+    coverage {
+        outputFormat = 'xml'
+    }
 }
 
-task wrapper( type: Wrapper ) {
-  gradleVersion = '2.4'
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
 }
